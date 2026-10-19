@@ -1,23 +1,430 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hngwy.com</title>
-    <style>
-        body { font-family: -apple-system, "Segoe UI", sans-serif; display: flex;
-               min-height: 100vh; align-items: center; justify-content: center;
-               margin: 0; background: #f5f5f5; color: #333; }
-        .card { background: #fff; padding: 3rem 4rem; border-radius: 12px;
-                box-shadow: 0 4px 16px rgba(0,0,0,.08); text-align: center; }
-        h1 { margin: 0 0 .5rem; font-size: 1.6rem; }
-        p { margin: 0; color: #888; }
-    </style>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>河南省考交流社群 | 河南省公务员考试备考互助</title>
+<meta name="keywords" content="河南省考,河南公务员考试,河南省考社群,公务员备考,行测申论,考友交流">
+<meta name="description" content="河南省公务员考试交流社群，提供省考资讯、备考资料、经验分享与考友互助，陪你一起上岸。">
+<link href="https://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+<style>
+    :root{--brand:#1a6fd4;--brand-dark:#135ba8;--ink:#1d2125;--gray:#767d84;--line:#eef0f3;}
+    html{scroll-behavior:smooth;}
+    body{padding-top:58px;font-family:"Helvetica Neue",Helvetica,Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;line-height:1.8;}
+    a{color:var(--brand);transition:color .2s;}
+    a:hover,a:focus{color:var(--brand-dark);text-decoration:none;}
+    .container{max-width:1140px;}
+
+    /* 导航 */
+    .navbar-min{border:0;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(8px);margin-bottom:0;border-radius:0;box-shadow:0 1px 0 var(--line);transition:box-shadow .25s;}
+    .navbar-min.scrolled{box-shadow:0 2px 14px rgba(16,24,40,.08);}
+    .navbar-min .navbar-brand{font-weight:700;font-size:17px;letter-spacing:1px;color:var(--ink);}
+    .navbar-min .navbar-brand .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--brand);margin-right:7px;vertical-align:2px;}
+    .navbar-min .nav>li>a{color:var(--gray);font-size:14px;padding:19px 16px;}
+    .navbar-min .nav>li>a:hover,.navbar-min .nav>li>a:focus{color:var(--ink);background:transparent;}
+    .navbar-min .nav>li>a:after{content:"";display:block;height:2px;width:0;background:var(--brand);margin:4px auto 0;transition:width .22s;}
+    .navbar-min .nav>li>a:hover:after{width:18px;}
+    .navbar-min .navbar-toggle{border-color:#e3e6e9;margin-top:11px;}
+    .navbar-min .navbar-toggle .icon-bar{background:#5b6268;}
+    .navbar-min .nav-btn{margin:11px 0 11px 12px;padding:7px 18px;border-radius:4px;font-size:14px;}
+
+    /* 通栏标题 */
+    .section{padding:78px 0;border-bottom:1px solid var(--line);scroll-margin-top:58px;}
+    .section.alt{background:#fbfcfd;}
+    .section-head{text-align:center;margin-bottom:48px;}
+    .section-title{font-size:26px;font-weight:700;letter-spacing:1px;margin:0 0 14px;}
+    .section-title:after{content:"";display:block;width:34px;height:2px;background:var(--brand);margin:16px auto 0;border-radius:2px;}
+    .section-sub{color:#949ba1;font-size:14px;margin:0;}
+
+    /* Hero */
+    .hero{position:relative;overflow:hidden;padding:92px 0 84px;text-align:center;background:linear-gradient(180deg,#f5f9ff 0%,#fff 78%);border-bottom:1px solid var(--line);}
+    .hero:before,.hero:after{content:"";position:absolute;border-radius:50%;pointer-events:none;}
+    .hero:before{width:560px;height:560px;top:-300px;left:50%;margin-left:-280px;background:radial-gradient(circle,rgba(26,111,212,.12),rgba(26,111,212,0) 68%);}
+    .hero:after{width:280px;height:280px;bottom:-150px;right:-60px;background:radial-gradient(circle,rgba(26,111,212,.10),rgba(26,111,212,0) 70%);}
+    .hero .inner{position:relative;}
+    .badge-pill{display:inline-block;padding:5px 14px;border:1px solid #d7e6fb;background:#fff;color:var(--brand);border-radius:20px;font-size:13px;margin-bottom:22px;}
+    .hero h1{font-size:42px;font-weight:700;letter-spacing:2px;margin:0 0 18px;line-height:1.45;}
+    .hero h1 span{color:var(--brand);}
+    .hero .lead{color:var(--gray);font-size:16px;line-height:2.1;margin:0 auto 34px;max-width:660px;}
+    .hero .btn{min-width:158px;padding:12px 28px;border-radius:4px;font-size:15px;transition:transform .2s,box-shadow .2s,background .2s;}
+    .hero .btn:hover{transform:translateY(-1px);}
+    .btn-brand{background:var(--brand);border-color:var(--brand);color:#fff;box-shadow:0 8px 20px rgba(26,111,212,.26);}
+    .btn-brand:hover,.btn-brand:focus{background:var(--brand-dark);border-color:var(--brand-dark);color:#fff;box-shadow:0 10px 24px rgba(26,111,212,.32);}
+    .btn-ghost{background:#fff;border:1px solid #dfe3e8;color:var(--ink);}
+    .btn-ghost:hover{border-color:var(--brand);color:var(--brand);}
+    .hero-meta{margin-top:26px;color:#a0a6ab;font-size:13px;letter-spacing:.5px;}
+    .hero-meta i{color:var(--brand);margin-right:4px;}
+    .hero-meta .sep{margin:0 12px;color:#dfe3e8;}
+
+    /* 数据条 */
+    .stats{border-bottom:1px solid var(--line);background:#fff;}
+    .stats .row{margin:0;}
+    .stat{padding:32px 10px;text-align:center;border-right:1px solid var(--line);}
+    .stat:last-child{border-right:0;}
+    .stat b{display:block;font-size:28px;font-weight:700;color:var(--ink);letter-spacing:1px;line-height:1.4;}
+    .stat b em{font-style:normal;color:var(--brand);}
+    .stat span{font-size:13px;color:#949ba1;}
+
+    /* 特性 */
+    .feature{background:#fff;border:1px solid var(--line);border-radius:8px;padding:32px 24px;height:100%;transition:transform .25s,box-shadow .25s,border-color .25s;}
+    .feature:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(16,24,40,.07);border-color:#d7e6fb;}
+    .icon-circle{width:50px;height:50px;border-radius:14px;background:#eef4fd;color:var(--brand);font-size:21px;line-height:50px;text-align:center;margin-bottom:18px;transition:background .25s,color .25s;}
+    .feature:hover .icon-circle{background:var(--brand);color:#fff;}
+    .feature h4{font-size:16px;font-weight:600;margin:0 0 8px;}
+    .feature p{color:#8b9196;font-size:14px;line-height:1.9;margin:0;}
+
+    /* 加入方式 */
+    .entry{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:30px 26px;overflow:hidden;height:100%;transition:transform .25s,box-shadow .25s,border-color .25s;}
+    .entry:before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--brand);}
+    .entry:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(16,24,40,.08);border-color:#d7e6fb;}
+    .entry .no{position:absolute;top:20px;right:24px;font-size:34px;font-weight:700;color:#f0f3f6;line-height:1;}
+    .entry h4{margin:0 0 4px;font-size:17px;font-weight:600;}
+    .entry .tag{font-size:12.5px;color:#a0a6ab;display:block;margin-bottom:16px;}
+    .entry p{font-size:14px;color:#82888d;line-height:1.9;margin-bottom:20px;min-height:80px;}
+    .entry .code{font-size:14.5px;color:var(--ink);letter-spacing:.5px;padding-top:16px;border-top:1px dashed var(--line);}
+    .entry .code i{margin-right:6px;}
+    .entry .code .fa-qq{color:#12b7f5;}
+    .entry .code .fa-weixin{color:#2dc100;}
+    .entry .code .fa-rss{color:#f0932b;}
+
+    /* 扫码 */
+    .qr-box{display:inline-block;padding:12px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 22px rgba(16,24,40,.05);}
+    .qr{width:132px;height:132px;line-height:130px;text-align:center;border:1px dashed #e3e6e9;border-radius:6px;color:#a8adb2;font-size:13px;background:#fcfcfd;}
+    .qr-tip{margin-top:14px;color:#8b9196;font-size:13.5px;}
+
+    /* 步骤 */
+    .step{position:relative;padding-left:58px;padding-bottom:30px;}
+    .step:before{content:"";position:absolute;left:17px;top:44px;bottom:0;width:1px;background:var(--line);}
+    .step:last-child:before{display:none;}
+    .step .num{position:absolute;left:0;top:0;width:36px;height:36px;line-height:34px;text-align:center;border:1px solid #d7e6fb;background:#f5f9ff;color:var(--brand);border-radius:50%;font-size:14px;font-weight:600;}
+    .step h4{font-size:15.5px;font-weight:600;margin:5px 0 6px;}
+    .step p{color:#8b9196;font-size:14px;line-height:1.9;margin:0;}
+
+    /* FAQ */
+    .panel-group .panel{border:1px solid var(--line);border-radius:8px;box-shadow:none;margin-bottom:10px;overflow:hidden;transition:border-color .2s;}
+    .panel-group .panel:hover{border-color:#d7e6fb;}
+    .panel-default>.panel-heading{background:#fff;border:0;padding:0;}
+    .panel-title{font-size:15px;font-weight:500;}
+    .panel-title a{display:block;padding:16px 46px 16px 20px;color:var(--ink);position:relative;}
+    .panel-title a.collapsed{color:#4c5257;}
+    .panel-title a:after{content:"\f106";font-family:FontAwesome;position:absolute;right:20px;top:16px;color:#b7bdc2;font-size:15px;transition:transform .25s;transform:rotate(180deg);}
+    .panel-title a.collapsed:after{transform:rotate(0deg);}
+    .panel-body{padding:0 20px 18px;color:#82888d;font-size:14px;line-height:1.95;border-top:0;}
+
+    /* 页脚 */
+    footer{background:#22262b;color:#8d949a;font-size:13px;padding:44px 0 38px;text-align:center;}
+    footer .f-logo{color:#fff;font-weight:700;letter-spacing:1px;font-size:15px;margin-bottom:16px;}
+    footer .f-logo .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--brand);margin-right:7px;vertical-align:2px;}
+    footer .links{margin-bottom:16px;}
+    footer .links a{margin:0 12px;color:#b3b9be;}
+    footer .links a:hover{color:#fff;}
+    footer .beian{margin-bottom:8px;}
+    footer .beian a{color:#8d949a;}
+    footer .beian a:hover{color:#fff;}
+    footer .beian .fa{margin-right:3px;}
+    footer .beian .sep{margin:0 10px;color:#3c4247;}
+    footer .copy{color:#6c7378;}
+
+    /* 回到顶部 */
+    #toTop{position:fixed;right:24px;bottom:28px;width:40px;height:40px;line-height:38px;text-align:center;border:1px solid var(--line);background:#fff;color:#8b9196;border-radius:50%;box-shadow:0 6px 18px rgba(16,24,40,.10);opacity:0;visibility:hidden;transition:.25s;z-index:99;}
+    #toTop.show{opacity:1;visibility:visible;}
+    #toTop:hover{color:#fff;background:var(--brand);border-color:var(--brand);}
+
+    /* 入场动画 */
+    .fade-up{opacity:0;transform:translateY(14px);animation:fadeUp .6s ease forwards;}
+    .d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.25s}.d4{animation-delay:.35s}
+    @keyframes fadeUp{to{opacity:1;transform:none;}}
+
+    @media (max-width:767px){
+        body{padding-top:52px;}
+        .hero{padding:56px 0 48px;}
+        .hero h1{font-size:27px;letter-spacing:1px;}
+        .hero .lead{font-size:15px;}
+        .hero .btn{display:block;width:100%;margin-bottom:12px;}
+        .section{padding:48px 0;}
+        .section-head{margin-bottom:32px;}
+        .section-title{font-size:22px;}
+        .stat{border-right:0;border-bottom:1px solid var(--line);padding:22px 10px;}
+        .stat:last-child{border-bottom:0;}
+        .entry p{min-height:0;}
+        footer .links a{margin:0 8px;}
+    }
+</style>
 </head>
 <body>
-    <div class="card">
-        <h1>hngwy.com</h1>
-        <p>Site initialized by oject.php</p>
+
+<nav class="navbar navbar-min navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-main">
+                <span class="sr-only">导航</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#top"><span class="dot"></span>豫考上岸</a>
+        </div>
+        <div class="collapse navbar-collapse" id="nav-main">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#about">社群介绍</a></li>
+                <li><a href="#entry">加入方式</a></li>
+                <li><a href="#step">入群流程</a></li>
+                <li><a href="#faq">常见问题</a></li>
+                <li><a class="btn btn-brand nav-btn" href="#entry">加入社群</a></li>
+            </ul>
+        </div>
     </div>
+</nav>
+
+<header class="hero" id="top">
+    <div class="container inner">
+        <span class="badge-pill"><i class="fa fa-map-marker"></i> 河南 · 省考 / 事业单位 / 选调生</span>
+        <h1>河南省考<span>交流社群</span></h1>
+        <p class="lead">专注河南省公务员考试的备考互助圈子。资讯同步、资料共享、考友答疑、组队打卡，<br>陪你走过从选岗报名到顺利上岸的每一步。</p>
+        <p>
+            <a href="#entry" class="btn btn-brand">立即加入社群</a>
+            <a href="#about" class="btn btn-ghost">先了解社群</a>
+        </p>
+        <p class="hero-meta">
+            <i class="fa fa-users"></i> 已有 8,600+ 考友加入<span class="sep">|</span><i class="fa fa-comments"></i> 日均交流 300+ 条<span class="sep">|</span><i class="fa fa-shield"></i> 纯公益无广告
+        </p>
+    </div>
+</header>
+
+<section class="stats">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-3 stat"><b><em>8,600</em>+</b><span>在群考友</span></div>
+            <div class="col-xs-6 col-sm-3 stat"><b><em>1,200</em>+</b><span>共享资料</span></div>
+            <div class="col-xs-6 col-sm-3 stat"><b><em>18</em> 地市</b><span>覆盖全河南</span></div>
+            <div class="col-xs-6 col-sm-3 stat"><b><em>5</em> 年</b><span>持续运营</span></div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="about">
+    <div class="container">
+        <div class="section-head">
+            <h2 class="section-title">为什么加入我们</h2>
+            <p class="section-sub">一个纯公益、无广告、只聊备考的省考小圈子</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
+                <div class="feature fade-up d1">
+                    <div class="icon-circle"><i class="fa fa-bullhorn"></i></div>
+                    <h4>省考资讯速递</h4>
+                    <p>公告发布、职位表解读、报名与缴费时间节点，第一时间同步提醒。</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="feature fade-up d2">
+                    <div class="icon-circle"><i class="fa fa-book"></i></div>
+                    <h4>备考资料共享</h4>
+                    <p>行测真题、申论范文、时政热点、面试素材，群文件持续更新。</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="feature fade-up d3">
+                    <div class="icon-circle"><i class="fa fa-comments"></i></div>
+                    <h4>考友在线答疑</h4>
+                    <p>在职上岸前辈常驻，选岗、备考节奏、体测政审都能问到答案。</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="feature fade-up d4">
+                    <div class="icon-circle"><i class="fa fa-handshake-o"></i></div>
+                    <h4>组队刷题打卡</h4>
+                    <p>每日刷题打卡、模考约战、线上自习室互相监督，告别孤军奋战。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section alt" id="entry">
+    <div class="container">
+        <div class="section-head">
+            <h2 class="section-title">加入方式</h2>
+            <p class="section-sub">选择你常用的平台，三选一即可</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="entry">
+                    <span class="no">01</span>
+                    <h4>QQ 备考总群</h4>
+                    <span class="tag">主力社群 · 文件沉淀</span>
+                    <p>公告提醒与资料库都在群文件，适合长期蹲守、系统备考的考友。</p>
+                    <div class="code"><i class="fa fa-qq"></i> 群号 123456789</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="entry">
+                    <span class="no">02</span>
+                    <h4>微信交流群</h4>
+                    <span class="tag">日常交流 · 即时沟通</span>
+                    <p>扫码入群，适合碎片时间刷手机、随时提问交流的同学。</p>
+                    <div class="code"><i class="fa fa-weixin"></i> 扫码添加小助手</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="entry">
+                    <span class="no">03</span>
+                    <h4>公众号 / 知乎</h4>
+                    <span class="tag">只看不聊 · 干货推送</span>
+                    <p>关注「豫考上岸」，每周推送省考政策解读与行测申论干货。</p>
+                    <div class="code"><i class="fa fa-rss"></i> 搜索：豫考上岸</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="join">
+    <div class="container">
+        <div class="section-head">
+            <h2 class="section-title">扫码进群</h2>
+            <p class="section-sub">微信 / QQ 扫一扫，备注「河南 + 报考岗位」</p>
+        </div>
+        <div class="row text-center">
+            <div class="col-sm-6">
+                <div class="qr-box"><div class="qr">二维码占位</div></div>
+                <p class="qr-tip"><i class="fa fa-weixin" style="color:#2dc100;"></i> 微信小助手（工作日 2 小时内通过）</p>
+            </div>
+            <div class="col-sm-6">
+                <div class="qr-box"><div class="qr">二维码占位</div></div>
+                <p class="qr-tip"><i class="fa fa-qq" style="color:#12b7f5;"></i> QQ 群一键加群</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section alt" id="step">
+    <div class="container">
+        <div class="section-head">
+            <h2 class="section-title">入群流程</h2>
+            <p class="section-sub">简单三步，开始你的上岸之路</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="step">
+                    <span class="num">1</span>
+                    <h4>选择社群</h4>
+                    <p>QQ 群看资料、微信群聊交流，按自己的使用习惯任选其一即可。</p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="step">
+                    <span class="num">2</span>
+                    <h4>备注信息</h4>
+                    <p>加群备注「地区 + 是否应届」，方便管理员快速通过并分组管理。</p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="step">
+                    <span class="num">3</span>
+                    <h4>查看群公告</h4>
+                    <p>进群先看置顶公告与群文件目录，熟悉打卡规则与资料索引。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="faq">
+    <div class="container">
+        <div class="section-head">
+            <h2 class="section-title">常见问题</h2>
+            <p class="section-sub">进群前你可能想知道</p>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel-group" id="faqList">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#faqList" href="#q1">社群是否收费？有没有广告？</a>
+                            </h4>
+                        </div>
+                        <div id="q1" class="panel-collapse collapse in">
+                            <div class="panel-body">完全免费，纯考友互助。群内禁止培训机构广告、刷屏与无关链接，违规一律清退。</div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#faqList" href="#q2">只针对河南省考吗？国考可以加入吗？</a>
+                            </h4>
+                        </div>
+                        <div id="q2" class="panel-collapse collapse">
+                            <div class="panel-body">以河南省考（省考、事业单位、选调生）为主，国考、河南三支一扶等同类考试同样欢迎交流。</div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#faqList" href="#q3">在职备考、时间不多，适合加入吗？</a>
+                            </h4>
+                        </div>
+                        <div id="q3" class="panel-collapse collapse">
+                            <div class="panel-body">群内有大量在职考友，已整理碎片化时间备考方案与每日两小时刷题计划，进群后按需取用即可。</div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#faqList" href="#q4">群里的资料来源可靠吗？</a>
+                            </h4>
+                        </div>
+                        <div id="q4" class="panel-collapse collapse">
+                            <div class="panel-body">以官方公告、历年真题和考友原创整理为主，涉及政策的内容均附官方链接，重要信息请以河南省人事考试网发布为准。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p class="f-logo"><span class="dot"></span>豫考上岸</p>
+        <p class="links">
+            <a href="#about">社群介绍</a>
+            <a href="#entry">加入方式</a>
+            <a href="#faq">常见问题</a>
+            <a href="#">免责声明</a>
+            <a href="#">联系我们</a>
+        </p>
+        <p class="beian">
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow">鲁ICP备2025144109号-31</a>
+            <span class="sep">|</span>
+            <a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" rel="nofollow">
+                <i class="fa fa-shield"></i>鲁公网安备37130202373077号
+            </a>
+        </p>
+        <p class="copy">© 2026 豫考上岸　河南省考交流社群　本站与官方考试机构无关，信息请以官方发布为准</p>
+    </div>
+</footer>
+
+<a href="#top" id="toTop" title="回到顶部"><i class="fa fa-angle-up"></i></a>
+
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script>
+    $(function () {
+        var $win = $(window), $nav = $('.navbar-min'), $top = $('#toTop');
+        function onScroll() {
+            var y = $win.scrollTop();
+            $nav.toggleClass('scrolled', y > 10);
+            $top.toggleClass('show', y > 400);
+        }
+        $win.on('scroll', onScroll);
+        onScroll();
+
+        // 移动端点击导航后自动收起
+        $('.navbar-min .nav a').on('click', function () {
+            if ($win.width() < 768) $('.navbar-collapse').collapse('hide');
+        });
+    });
+</script>
 </body>
 </html>
